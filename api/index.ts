@@ -6,6 +6,7 @@ const showRoutes = require('./routes/showRoutes')
 require ('dotenv').config()
 
 const express = require('express')
+const cors = require('cors')
 
 const app:Application = express()
 
@@ -14,6 +15,13 @@ app.get('/', (req:Request, res:Response) => {
 })
 
 app.use(express.json())
+app.use(cors({origin: [
+    "https://recommendation-app-beta.vercel.app/", 
+    "https://recommendation-app-beta.vercel.app/games",
+    "https://recommendation-app-beta.vercel.app/movies", 
+    "https://recommendation-app-beta.vercel.app/shows"
+]}))
+
 app.use('/games', gameRoutes)
 app.use('/movies', movieRoutes)
 app.use('/shows', showRoutes)
