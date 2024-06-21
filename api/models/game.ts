@@ -11,6 +11,6 @@ const gameSchema = new Schema({
     steamLink: {type: String, required: true},
     description: {type: String, required: true},
     submittedBy: {type: String, required: true}
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Game', gameSchema, 'Games')

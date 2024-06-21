@@ -13,6 +13,6 @@ const movieSchema = new Schema({
     length: {type: Number, required: true},
     description: {type: String, required: true},
     submittedBy: {type: String, required: true}
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Movie', movieSchema, 'Movies')

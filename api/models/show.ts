@@ -14,6 +14,6 @@ const showSchema = new Schema({
     episodeLength: {type: Number, required: true},
     description: {type: String, required: true},
     submittedBy: {type: String, required: true}
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Show', showSchema, 'Shows')
