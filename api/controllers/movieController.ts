@@ -9,8 +9,8 @@ exports.getAllMovies = async(req:Request,res:Response) => {
 exports.addMovieRecommendation = async (req:Request, res:Response) => {
     const {name, releaseYear, format,  platform, genre, director, starring, length, description, submittedBy} = req.body
     try {
-        const team = await Movie.create({name, releaseYear, format,  platform, genre, director, starring, length, description, submittedBy})
-        res.status(200).json(team)
+        const movie = await Movie.create({name, releaseYear, format,  platform, genre, director, starring, length, description, submittedBy})
+        res.status(200).json(movie)
     } catch (error:unknown) {
         if(error instanceof Error) {
             res.status(400).json({error: error.message})
