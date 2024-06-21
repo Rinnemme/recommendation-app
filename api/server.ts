@@ -13,6 +13,7 @@ app.get('/', (req:Request, res:Response) => {
     res.json({mssg: 'API Home!'})
 })
 
+app.use(express.json())
 app.use('/games', gameRoutes)
 app.use('/movies', movieRoutes)
 app.use('/shows', showRoutes)
