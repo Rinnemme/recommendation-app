@@ -16,10 +16,10 @@ app.get('/', (req:Request, res:Response) => {
 
 app.use(express.json())
 app.use(cors({origin: [
-    "https://recommendation-app-git-main-emmett-herricks-projects.vercel.app/", 
-    "https://recommendation-app-git-main-emmett-herricks-projects.vercel.app/games",
-    "https://recommendation-app-git-main-emmett-herricks-projects.vercel.app/movies", 
-    "https://recommendation-app-git-main-emmett-herricks-projects.vercel.app/shows"
+    "https://recommendation-app-beta.vercel.app/", 
+    "https://recommendation-app-beta.vercel.app/games",
+    "https://recommendation-app-beta.vercel.app/movies", 
+    "https://recommendation-app-beta.vercel.app/shows"
 ]}))
 
 app.use('/games', gameRoutes)
