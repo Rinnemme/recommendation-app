@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import Navbar from '../components/Navbar'
 import { RecContextProvider } from "@/context/appContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nerdy Recs",
@@ -26,7 +26,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mulish.className}>
         <RecContextProvider games={gamesJson} movies={moviesJson} shows={showsJson}>
           <Navbar/>
           {children}
