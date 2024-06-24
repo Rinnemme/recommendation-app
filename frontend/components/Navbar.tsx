@@ -36,9 +36,9 @@ export default function Example() {
                 </div>
 
                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-                    <Link href="/games" className={"rounded-md px-3 py-2 text-sm " + (path === "/games" ? "bg-cyan-600 text-white" : 'text-gray-800 hover:text-cyan-700')}>Games</Link>
-                    <Link href="/movies" className={"rounded-md px-3 py-2 text-sm " + (path === "/movies" ? "bg-cyan-600 text-white" : 'text-gray-800 hover:text-cyan-700')}>Movies</Link>
-                    <Link href="/shows" className={"rounded-md px-3 py-2 text-sm " + (path === "/shows" ? "bg-cyan-600 text-white" : 'text-gray-800 hhover:text-cyan-700hover:text-cyan-700')}>Shows</Link>
+                    <Link href="/games" className={"rounded-md px-3 py-2 text-sm " + (path === "/games" ? "bg-gradient-to-r from-teal-500 to-sky-700 text-white" : 'text-gray-800 hover:text-cyan-700 hover:bg-slate-100')}>Games</Link>
+                    <Link href="/movies" className={"rounded-md px-3 py-2 text-sm " + (path === "/movies" ? "bg-gradient-to-r from-teal-500 to-sky-700 text-white" : 'text-gray-800 hover:text-cyan-700 hover:bg-slate-100')}>Movies</Link>
+                    <Link href="/shows" className={"rounded-md px-3 py-2 text-sm " + (path === "/shows" ? "bg-gradient-to-r from-teal-500 to-sky-700 text-white" : 'text-gray-800 hhover:text-cyan-700 hover:text-cyan-700 hover:bg-slate-100')}>Shows</Link>
                 </div>
               </div>
 
@@ -61,9 +61,9 @@ export default function Example() {
           <DisclosurePanel className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                 <DisclosureButton>                  
-                  <Link href="/games" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/games" ? ' border-cyan-600' : 'border-white hover:bg-gray-700 hover:text-white')}>Games</Link>
-                  <Link href="/movies" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/movies" ? ' border-cyan-600' : 'border-white hover:bg-gray-700 hover:text-white')}>Movies</Link>
-                  <Link href="/shows" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/shows" ? ' border-cyan-600' : 'border-white hover:bg-gray-700 hover:text-white')}>Shows</Link>
+                  <Link href="/games" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/games" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Games</Link>
+                  <Link href="/movies" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/movies" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Movies</Link>
+                  <Link href="/shows" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/shows" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Shows</Link>
                 </DisclosureButton>
             </div>
           </DisclosurePanel>
