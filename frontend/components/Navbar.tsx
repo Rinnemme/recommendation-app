@@ -11,7 +11,7 @@ export default function Example() {
     console.log(path)
 
   return (
-    <Disclosure as="nav" className="bg-white shadow-md sticky">
+    <Disclosure as="nav" className="bg-white shadow-md z-10 sticky top-0">
       {({ open }) => (
         <>
           <div className="mx-auto  px-4">
