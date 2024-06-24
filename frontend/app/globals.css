@@ -6,3 +6,12 @@
   background-color: #fcfafa;
   color: rgb(15,23,42);
 }
+
+@keyframes fadeIn {
+  from    { opacity: 0; }
+  to      { opacity: 1; }
+}
+
+.fade-in { 
+  animation: fadeIn 0.5s ease-in; 
+}
