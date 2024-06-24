@@ -25,7 +25,6 @@ export default function Example() {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                    <span className="sr-only">Open main menu</span>
                   </DisclosureButton>
                 </div>
 
@@ -46,9 +45,9 @@ export default function Example() {
                 <div className="flex-shrink-0">
                   <button
                     type="button"
-                    className="relative inline-flex items-center gap-x-1.5 rounded-md bg-sky-700 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="relative inline-flex items-center gap-x-1.5 rounded-md bg-teal-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all ease-in-out duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                     Recommend
