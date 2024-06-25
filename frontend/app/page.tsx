@@ -29,19 +29,19 @@ export default function Example() {
             <div className="mt-8 flex items-center justify-center gap-x-6">
               <a
                 href="/games"
-                className="rounded-md bg-gradient-to-r from-teal-500 to-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-teal-400 hover:to-sky-600 hover:scale-105 transition-all ease-in-out duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
+                className="rounded-md bg-teal-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:teal-400 hover:scale-105 transition-all ease-in-out duration-300"
+                >
                 Games
               </a>
               <a
                 href="/movies"
-                className="rounded-md bg-gradient-to-r from-teal-500 to-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-teal-400 hover:to-sky-600 hover:scale-105 transition-all ease-in-out duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
+                className="rounded-md bg-gradient-to-r from-teal-500 to-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-teal-400 hover:to-sky-600 hover:scale-105 transition-all ease-in-out duration-300"
+                >
                 Movies
               </a>
               <a
                 href="/shows"
-                className="rounded-md bg-gradient-to-r from-teal-500 to-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-teal-400 hover:to-sky-600 hover:scale-105 transition-all ease-in-out duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all ease-in-out duration-300"
               >
                 Shows
               </a>
