@@ -2,7 +2,7 @@
 
 import { useContext } from "react"
 import { recContext } from "@/context/appContext"
-import { movieRec } from "@/types"
+import { movieRec } from '../../types'
 
 export default function Page() {
     const {movies} = useContext(recContext)

@@ -2,7 +2,7 @@
 
 import { useContext } from "react"
 import { recContext } from "@/context/appContext"
-import { gameRec } from "@/types"
+import { gameRec } from '../../types'
 
 export default function Page() {
     const {games} = useContext(recContext)

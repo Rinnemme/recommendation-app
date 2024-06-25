@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useReducer } from 'react'
-import { gameRec, movieRec, showRec, recommendationContext } from '@/app/types'
+import { gameRec, movieRec, showRec, recommendationContext } from '../types'
 
 const emptyContext:recommendationContext = {
     games: [],
