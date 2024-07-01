@@ -169,9 +169,10 @@ export default function Page() {
                         <p className="mt-1 text-sm h-2 text-red-600">{errors.length?.message as ReactNode}</p>
                     </div>
 
-
-                    <Selector array={platforms} state={platformList} func={togglePlatform} header='Platform to watch on (select all that apply)'/>
-                    <Selector array={genres} state={genreList} func={toggleGenre} header='Genre (select all that apply)'/>
+                    <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Platform to watch on (select all that apply)`}</legend>
+                    <Selector array={platforms} state={platformList} func={togglePlatform}/>
+                    <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Genre (select all that apply)`}</legend>
+                    <Selector array={genres} state={genreList} func={toggleGenre}/>
 
                     <div className="w-96 mt-6">
                         <label htmlFor="about" className="block font-medium leading-6 text-gray-900">
