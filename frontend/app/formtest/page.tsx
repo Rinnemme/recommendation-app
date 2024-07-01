@@ -37,7 +37,7 @@ export default function Page() {
         {id: 10, name: 'Psychological Thriller'},
         {id: 11, name: 'Adventure'},
         {id: 12, name: 'Documentary'},
-        {id: 13, name: 'Muscial'},
+        {id: 13, name: 'Musical'},
         {id: 14, name: 'Fighting'}
     ]
 
@@ -67,58 +67,105 @@ export default function Page() {
             transition
             className="relative transform flex flex-col content-center overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-y-scroll my-12"
           >
-            <div>
-              <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
-                <DialogTitle as="h3" className="text-2xl leading-6 mb-6 mt-6 text-sky-800">
-                  Recommend a movie
-                </DialogTitle>
-                
-                <div className="w-72 mt-6">
-                    <label htmlFor="name" className="block font-medium leading-6 text-gray-900">
-                        Movie Name
-                    </label>
-                    <div className="mt-2">
-                        <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-                        placeholder="e.g. Game of Thrones"
-                        />
+            <form>
+                <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
+                    <DialogTitle as="h3" className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-6 mb-10 mt-6 text-sky-800">
+                    Recommend a movie
+                    </DialogTitle>
+                    
+                    <div className="w-72 mt-6">
+                        <label htmlFor="name" className="block font-medium leading-6 text-gray-900">
+                            Movie Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            placeholder="e.g. Dead Poet's Society"
+                            />
+                        </div>
                     </div>
-                </div>
 
-                <div className="w-72 mt-6">
-                    <label htmlFor="name" className="block font-medium leading-6 text-gray-900">
-                        Stars
-                    </label>
-                    <div className="mt-2">
-                        <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-                        placeholder="e.g. Tom Cruise, Tom Hanks, Tom Hardy"
-                        />
+                    <div className="w-72 mt-6">
+                        <label htmlFor="name" className="block font-medium leading-6 text-gray-900">
+                            Stars
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            placeholder="e.g. Tom Cruise, Tom Hanks, Tom Hardy"
+                            />
+                        </div>
+                        <p className="mt-2 text-sm text-gray-500" id="email-description">
+                            Separate names with a comma and space
+                        </p>
                     </div>
-                    <p className="mt-2 text-sm text-gray-500" id="email-description">
-                        Separate names with a comma and space
-                    </p>
+
+                    <div className="w-72 mt-6">
+                        <label htmlFor="director" className="block font-medium leading-6 text-gray-900">
+                            Director
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            name="director"
+                            id="director"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            placeholder="e.g. Ridley Scott"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="w-72 mt-6">
+                        <label htmlFor="length" className="block font-medium leading-6 text-gray-900">
+                            {`Length (Minutes)`}
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            name="length"
+                            id="length"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            placeholder="e.g. 129 for a movie that is 2hr 9m"
+                            />
+                        </div>
+                    </div>
+
+
+                    <Selector array={platforms} state={platformList} func={togglePlatform} header='Platform to watch on (select all that apply)'/>
+                    <Selector array={genres} state={genreList} func={toggleGenre} header='Genre (select all that apply)'/>
+
+                    <div className="w-96 mt-6">
+                        <label htmlFor="about" className="block font-medium leading-6 text-gray-900">
+                            Synopsis
+                        </label>
+                        <div className="mt-2">
+                            <textarea
+                            id="about"
+                            name="about"
+                            rows={3}
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            defaultValue={''}
+                            />
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-gray-600">What's it about? What themes does it address? What does it make you feel? Give your pitch!</p>
+                    </div>
+
                 </div>
-
-                <Selector array={platforms} state={platformList} func={togglePlatform} header='Platform to watch on (select all that apply)'/>
-                <Selector array={genres} state={genreList} func={toggleGenre} header='Genre (select all that apply)'/>
-
-              </div>
-            </div>
-            <div className="mt-5 sm:mt-6 w-full flex justify-center">
-              <button
-                type="button"
-                className="inline-flex w-auto justify-center rounded-md bg-teal-500 px-3 py-2 my-4 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all duration-300"
-              >
-                Submit
-              </button>
-            </div>
+                <div className="mt-5 sm:mt-6 w-full flex justify-center">
+                <button
+                    type="submit"
+                    className="inline-flex w-auto justify-center rounded-md bg-teal-500 px-3 py-2 my-4 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all duration-300"
+                >
+                    Submit
+                </button>
+                </div>
+            </form>
           </DialogPanel>
         </div>
       </div>

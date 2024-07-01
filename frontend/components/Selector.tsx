@@ -2,7 +2,7 @@
 export default function Selector ({array, state, func, header}: Readonly<{array: {id:number, name:string}[]; state:string[]; func: (name:string) => void; header:string}>) {
     return (
         <fieldset className="mt-10">
-            <legend className="text-base leading-6 mb-2 text-slate-900">{header}</legend>
+            <legend className="block font-medium leading-6 text-gray-900">{header}</legend>
             <div className="mt-4 flex flex-wrap justify-center content-center gap-4">
                 {array.map((item) => (
                 <div 
