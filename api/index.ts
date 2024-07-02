@@ -21,7 +21,7 @@ app.use(cors({origin: [
     "https://recommendation-app-beta.vercel.app/movies", 
     "https://recommendation-app-beta.vercel.app/shows",
     "http://localhost:3000/formtest",
-    "http://localhost:3000/"
+    "http://localhost:3000"
 ]}))
 
 app.use('/games', gameRoutes)
