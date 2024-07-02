@@ -8,30 +8,39 @@ import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 
 export default function Page() {
-    const [genreList, setGenreList] = useState<string[] | []>([])
-    const [platformList, setPlatformList] = useState<string[] | []>([])
+    const [recGenres, setRecGenres] = useState<string[] | []>([])
+    const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
 
-    const {register, handleSubmit, formState} = useForm<movieRec>({mode: "onTouched"})
+    const {register, handleSubmit, trigger, setValue, formState} = useForm<any>({mode: "onTouched", reValidateMode: "onSubmit"})
     const {errors} = formState
 
     const toggleGenre = (genre:string) => {
-        if(genreList.includes(genre as never)) {
-            setGenreList(genreList.filter((g) => g !== genre))
+        if(recGenres.includes(genre as never)) {
+            setRecGenres(recGenres.filter((g) => g !== genre))
+            setValue("genre", recGenres.filter((g) => g !== genre).join(', '))
+            trigger("genre")
         } else {
-            setGenreList([...genreList, genre])
+            setRecGenres([...recGenres, genre])
+            setValue("genre", [...recGenres, genre].join(', '))
+            trigger("genre")
         }
     }
 
     const togglePlatform = (platform:string) => {
-        if(platformList.includes(platform as never)) {
-            setPlatformList(platformList.filter((p) => p !== platform))
+        if(recPlatforms.includes(platform as never)) {
+            setRecPlatforms(recPlatforms.filter((p) => p !== platform))
+            setValue("platform", recPlatforms.filter((p) => p !== platform).join(', '))
+            trigger("platform")
         } else {
-            setPlatformList([...platformList, platform])
+            setRecPlatforms([...recPlatforms, platform])
+            setValue("platform", [...recPlatforms, platform].join(', '))
+            trigger("platform")
         }
     }
 
-    function onSubmit(data: movieRec) {
+    async function onSubmit(data: any) {
         console.log('Form Submitted', data)
+       
     }
 
   return (
@@ -123,6 +132,19 @@ export default function Page() {
                     </div>
 
                     <div className="w-72 mt-6">
+                        <label htmlFor="format" className="block font-medium leading-6 text-gray-900">
+                            Format
+                        </label>
+                        <select
+                            id="format"
+                            className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                        >
+                            <option>Live Action</option>
+                            <option>Animated</option>
+                        </select>
+                    </div>
+
+                    <div className="w-72 mt-6">
                         <label htmlFor="length" className="block font-medium leading-6 text-gray-900">
                             {`Length (Minutes)`}
                         </label>
@@ -144,6 +166,28 @@ export default function Page() {
                         <p className="mt-1 text-sm h-2 text-red-600">{errors.length?.message as ReactNode}</p>
                     </div>
 
+                    <div className="w-72 mt-6">
+                        <label htmlFor="releaseYear" className="block font-medium leading-6 text-gray-900">
+                            Release Year
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            id="releaseYear"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            placeholder="e.g. 2006"
+                            {...register("releaseYear", {
+                                required: "Release year is required",
+                                pattern: {
+                                    value: /[1-2][0-9][0-9][0-9]/,
+                                    message: "Please enter a year"
+                                }
+                            })}
+                            />
+                        </div>
+                        <p className="mt-1 text-sm h-2 text-red-600">{errors.releaseYear?.message as ReactNode}</p>
+                    </div>
+
                     <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Platform to watch on (select all that apply)`}</legend>
                     <div className="w-72 hidden mt-6">
                         <label htmlFor="platform">
@@ -153,7 +197,7 @@ export default function Page() {
                             <input
                             type="text"
                             id="platform"
-                            value={platformList.join(', ')}
+                            value={recPlatforms.join(', ')}
                             {...register("platform", {
                                 required: "Must be viewable on at least one platform"
                             })}
@@ -161,7 +205,7 @@ export default function Page() {
                         </div>
                     </div>
                     <p className="mt-1 mb-2 text-sm h-2 text-red-600">{errors.platform?.message as ReactNode}</p>
-                    <Selector array={streamingPlatforms} state={platformList} func={togglePlatform}/>
+                    <Selector array={streamingPlatforms} state={recPlatforms} func={togglePlatform}/>
 
                     <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Genre (select all that apply)`}</legend>
                     <div className="w-72 hidden mt-6">
@@ -172,7 +216,6 @@ export default function Page() {
                             <input
                             type="text"
                             id="genre"
-                            value={genreList.join(', ')}
                             {...register("genre", {
                                 required: "Please pick at least one genre"
                             })}
@@ -180,7 +223,7 @@ export default function Page() {
                         </div>
                     </div>
                     <p className="mt-1 mb-2 text-sm h-2 text-red-600">{errors.genre?.message as ReactNode}</p>
-                    <Selector array={videoGenres} state={genreList} func={toggleGenre}/>
+                    <Selector array={videoGenres} state={recGenres} func={toggleGenre}/>
 
                     <div className="w-96 mt-6">
                         <label htmlFor="about" className="block font-medium leading-6 text-gray-900">
@@ -203,6 +246,27 @@ export default function Page() {
                         </div>
                         <p className="mt-3 text-sm leading-6 text-gray-600">What's it about? What themes does it address? What does it make you feel? Give your pitch!</p>
                         <p className="mt-1 text-sm h-2 text-red-600">{errors.synopsis?.message as ReactNode}</p>
+                    </div>
+
+                    <div className="w-72 mt-6">
+                        <label htmlFor="submittedBy" className="block font-medium leading-6 text-gray-900">
+                            Your Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            type="text"
+                            id="submittedBy"
+                            className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            {...register("submittedBy", {
+                                required: "Please provide your name",
+                                pattern: {
+                                    value: /^[^<>{}!>]*$/,
+                                    message: "Must not contain: <, {, >, }"
+                                }
+                            })}
+                            />
+                        </div>
+                        <p className="mt-1 text-sm h-2 text-red-600">{errors.submittedBy?.message as ReactNode}</p>
                     </div>
 
                 </div>
