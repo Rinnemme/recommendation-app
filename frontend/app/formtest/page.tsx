@@ -5,6 +5,7 @@ import { useState, ReactNode } from 'react'
 import Selector from '@/components/Selector'
 import { movieRec } from '@/types'
 import { useForm } from "react-hook-form"
+import { videoGenres, streamingPlatforms } from '@/lists'
 
 export default function Page() {
     const [genreList, setGenreList] = useState<string[] | []>([])
@@ -29,35 +30,9 @@ export default function Page() {
         }
     }
 
-    const genres:{id:number, name:string}[] = [
-        {id: 1, name: 'Horror'},
-        {id: 2, name: 'Action'},
-        {id: 3, name: 'Drama'},
-        {id: 4, name: 'Romance'},
-        {id: 5, name: 'Comedy'},
-        {id: 6, name: 'Scifi'},
-        {id: 7, name: 'Western'},
-        {id: 8, name: 'Fantasy'},
-        {id: 9, name: 'Crime'},
-        {id: 10, name: 'Psychological Thriller'},
-        {id: 11, name: 'Adventure'},
-        {id: 12, name: 'Documentary'},
-        {id: 13, name: 'Musical'},
-        {id: 14, name: 'Fighting'}
-    ]
-
-    const platforms:{id:number, name:string}[] = [
-        {id: 1, name: 'Hulu'},
-        {id: 2, name: 'Netflix'},
-        {id: 3, name: 'Apple TV'},
-        {id: 4, name: 'Disney +'},
-        {id: 5, name: 'Amazon Prime Video'},
-        {id: 6, name: 'Max'},
-        {id: 7, name: 'Paramount'},
-        {id: 8, name: 'Peacock'},
-        {id: 9, name: 'Crunchyroll'},
-        {id: 10, name: 'Hi Dive'}
-    ]
+    function onSubmit(data: movieRec) {
+        console.log('Form Submitted', data)
+    }
 
   return (
     <Dialog className="relative z-10" open={true} onClose={() => console.log('closed')}>
@@ -72,7 +47,7 @@ export default function Page() {
             transition
             className="relative transform flex flex-col content-center overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-y-scroll my-12"
           >
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
                     <DialogTitle as="h3" className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-6 mb-10 mt-6 text-sky-800">
                     Recommend a movie
@@ -170,9 +145,42 @@ export default function Page() {
                     </div>
 
                     <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Platform to watch on (select all that apply)`}</legend>
-                    <Selector array={platforms} state={platformList} func={togglePlatform}/>
+                    <div className="w-72 hidden mt-6">
+                        <label htmlFor="platform">
+                            Platforms
+                        </label>
+                        <div>
+                            <input
+                            type="text"
+                            id="platform"
+                            value={platformList.join(', ')}
+                            {...register("platform", {
+                                required: "Must be viewable on at least one platform"
+                            })}
+                            />
+                        </div>
+                    </div>
+                    <p className="mt-1 mb-2 text-sm h-2 text-red-600">{errors.platform?.message as ReactNode}</p>
+                    <Selector array={streamingPlatforms} state={platformList} func={togglePlatform}/>
+
                     <legend className="block mt-10 font-medium leading-6 text-gray-900">{`Genre (select all that apply)`}</legend>
-                    <Selector array={genres} state={genreList} func={toggleGenre}/>
+                    <div className="w-72 hidden mt-6">
+                        <label htmlFor="genre">
+                            Genre
+                        </label>
+                        <div>
+                            <input
+                            type="text"
+                            id="genre"
+                            value={genreList.join(', ')}
+                            {...register("genre", {
+                                required: "Please pick at least one genre"
+                            })}
+                            />
+                        </div>
+                    </div>
+                    <p className="mt-1 mb-2 text-sm h-2 text-red-600">{errors.genre?.message as ReactNode}</p>
+                    <Selector array={videoGenres} state={genreList} func={toggleGenre}/>
 
                     <div className="w-96 mt-6">
                         <label htmlFor="about" className="block font-medium leading-6 text-gray-900">
