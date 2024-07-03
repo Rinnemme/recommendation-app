@@ -1,6 +1,6 @@
 "use client"
 
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
+import { DialogTitle } from '@headlessui/react'
 import { useState, ReactNode, useContext } from 'react'
 import Selector from '@/components/Selector'
 import { movieRec } from '@/types'
@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function Page() {
+export default function MovieForm() {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
     const {dispatch} = useContext(recContext)
@@ -71,18 +71,7 @@ export default function Page() {
     }
 
   return (
-    <Dialog className="relative z-10" open={true} onClose={() => console.log('closed')}>
-      <DialogBackdrop
-        transition
-        className="fixed inset-0 bg-gray-500 bg-opacity-75"
-      />
-
-      <div className="fixed inset-0 z-10 w-screen max-h-dvh flex justify-center">
-        <div className="flex min-h-full content-center justify-center p-4 text-center sm:items-center sm:p-0">
-          <DialogPanel
-            transition
-            className="relative transform flex flex-col content-center overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-y-scroll my-12"
-          >
+    
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
                     <DialogTitle as="h3" className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-6 mb-10 mt-6 text-sky-800">
@@ -316,9 +305,5 @@ export default function Page() {
                 </button>
                 </div>
             </form>
-          </DialogPanel>
-        </div>
-      </div>
-    </Dialog>
   )
 }
