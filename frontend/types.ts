@@ -25,7 +25,7 @@ export type movieRec = {
     director: string,
     starring: string[],
     length: number,
-    synopsis: string,
+    description: string,
     submittedBy: string
 }
 
