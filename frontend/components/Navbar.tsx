@@ -1,16 +1,21 @@
 "use client"
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import Image from 'next/image'
 import Logo from '../logo.svg'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Modal from './Modal'
+import MovieForm from './MovieForm'
+import { useState } from 'react'
 
-export default function Example() {
+
+export default function Navbar() {
 
     const path = usePathname()
-    console.log(path)
+    const [modalOpen, setModalOpen] = useState<Boolean>(false)
 
   return (
+    <>
     <Disclosure as="nav" className="bg-white shadow-md z-10 sticky top-0">
       {({ open }) => (
         <>
@@ -46,6 +51,7 @@ export default function Example() {
                   <button
                     type="button"
                     className="relative inline-flex items-center gap-x-1.5 rounded-md bg-teal-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all ease-in-out duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    onClick={() => setModalOpen(true)}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -69,5 +75,9 @@ export default function Example() {
         </>
       )}
     </Disclosure>
+    {modalOpen && <Modal closeFunc={() => setModalOpen(false)}>
+        <MovieForm/>
+    </Modal>}
+    </>
   )
 }
