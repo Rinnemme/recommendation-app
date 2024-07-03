@@ -21,7 +21,7 @@ export default function Page() {
                             <p className="text-sm mt-1"><span className="font-bold">{`Starring: `}</span>{`${movie.starring.join(', ')}`}</p>
                             <p className="text-sm mt-1"><span className="font-bold">{`Directed by: `}</span>{`${movie.director}`}</p>
                             <p className="text-sm mt-1"><span className="font-bold">{`Length: `}</span>{`${movie.length} min`}</p>
-                            <p className="font-light mt-4 text-">{movie.synopsis}</p>
+                            <p className="font-light mt-4 text-">{movie.description}</p>
                         </li>
                     )
                     }
