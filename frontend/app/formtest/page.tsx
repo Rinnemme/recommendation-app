@@ -1,17 +1,18 @@
 "use client"
 
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useState, ReactNode } from 'react'
+import { useState, ReactNode, useContext } from 'react'
 import Selector from '@/components/Selector'
 import { movieRec } from '@/types'
 import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
+import { recContext } from '@/context/appContext'
 
 export default function Page() {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
-
-    const {register, handleSubmit, trigger, setValue, formState} = useForm<any>({mode: "onTouched", reValidateMode: "onSubmit"})
+    const {dispatch} = useContext(recContext)
+    const {register, handleSubmit, trigger, setValue, formState} = useForm<any>({mode: "onTouched"})
     const {errors} = formState
 
     const toggleGenre = (genre:string) => {
@@ -40,7 +41,33 @@ export default function Page() {
 
     async function onSubmit(data: any) {
         console.log('Form Submitted', data)
-       
+        const rec:movieRec = {
+            name: data.name,
+            starring: data.starring.split(', '),
+            director: data.director,
+            format: data.format,
+            length: +data.length,
+            releaseYear: +data.releaseYear,
+            platform: data.platform.split(', '),    
+            genre: data.genre.split(', '),
+            description: data.synopsis,
+            submittedBy: data.submittedBy
+        }
+        console.log(JSON.stringify(rec))
+        const response = await fetch('https://recommendation-app-beta.vercel.app/movies', {
+            method: 'POST',
+            body: JSON.stringify(rec),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if (!response.ok) {
+            const json = await response.json()
+            console.log(json.error)
+        }
+        if (response.ok) {
+            dispatch({type: 'ADD_MOVIE', payload: rec})
+        }
     }
 
   return (
@@ -76,7 +103,7 @@ export default function Page() {
                                 required: "Movie name is required",
                                 pattern: {
                                     value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }"
+                                    message: "Must not contain: <, {, >, }, !"
                                 }
                             })}
                             />
@@ -98,7 +125,7 @@ export default function Page() {
                                 required: "At least one star is required",
                                 pattern: {
                                     value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }"
+                                    message: "Must not contain: <, {, >, }, !"
                                 }
                             })}
                             />
@@ -123,7 +150,7 @@ export default function Page() {
                                 required: "Director is required",
                                 pattern: {
                                     value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }"
+                                    message: "Must not contain: <, {, >, }, !"
                                 }
                             })}
                             />
@@ -137,11 +164,21 @@ export default function Page() {
                         </label>
                         <select
                             id="format"
+                            defaultValue=""
                             className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            {...register("format", {
+                                required: "Format is required",
+                                pattern: {
+                                    value: /^[^-]*$/,
+                                    message: "Please select either live action or animated"
+                                }
+                            })}
                         >
+                            <option>-- Select one --</option>
                             <option>Live Action</option>
                             <option>Animated</option>
                         </select>
+                        <p className="mt-1 text-sm h-2 text-red-600">{errors.format?.message as ReactNode}</p>
                     </div>
 
                     <div className="w-72 mt-6">
@@ -180,7 +217,7 @@ export default function Page() {
                                 required: "Release year is required",
                                 pattern: {
                                     value: /[1-2][0-9][0-9][0-9]/,
-                                    message: "Please enter a year"
+                                    message: "Please enter a valid year"
                                 }
                             })}
                             />
