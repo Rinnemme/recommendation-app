@@ -96,8 +96,8 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("name", {
                                 required: "Movie name is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }, !"
+                                    value: /^[^<>{}>]*$/,
+                                    message: "Must not contain: <, {, >, }"
                                 }
                             })}
                             />
@@ -290,7 +290,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("description", {
                                 required: "description is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}
@@ -312,7 +312,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("submittedBy", {
                                 required: "Please provide your name",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}

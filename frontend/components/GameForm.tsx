@@ -78,8 +78,8 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("name", {
                                 required: "Movie name is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }, !"
+                                    value: /^[^<>{}>]*$/,
+                                    message: "Must not contain: <, {, >, }"
                                 }
                             })}
                             />
@@ -187,7 +187,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("steamLink", {
                                 required: "Steam Link is required",
                                 pattern: {
-                                    value: /^https:\/\/store.steampowered.com\/[^<>{}!>]*$/,
+                                    value: /^https:\/\/store.steampowered.com\/[^<>{}>]*$/,
                                     message: "Must be a Steam link"
                                 }
                             })}
@@ -209,7 +209,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("description", {
                                 required: "Descsription is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}
@@ -231,7 +231,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("submittedBy", {
                                 required: "Please provide your name",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}

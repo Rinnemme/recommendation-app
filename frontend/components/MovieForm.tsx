@@ -93,8 +93,8 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             {...register("name", {
                                 required: "Movie name is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }, !"
+                                    value: /^[^<>{}>]*$/,
+                                    message: "Must not contain: <, {, >, }"
                                 }
                             })}
                             />
@@ -115,8 +115,8 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             {...register("starring", {
                                 required: "At least one star is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }, !"
+                                    value: /^[^<>{}>]*$/,
+                                    message: "Must not contain: <, {, >, }"
                                 }
                             })}
                             />
@@ -140,8 +140,8 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             {...register("director", {
                                 required: "Director is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
-                                    message: "Must not contain: <, {, >, }, !"
+                                    value: /^[^<>{}>]*$/,
+                                    message: "Must not contain: <, {, >, }"
                                 }
                             })}
                             />
@@ -266,7 +266,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             {...register("synopsis", {
                                 required: "Synopsis is required",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}
@@ -288,7 +288,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             {...register("submittedBy", {
                                 required: "Please provide your name",
                                 pattern: {
-                                    value: /^[^<>{}!>]*$/,
+                                    value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
                                 }
                             })}
