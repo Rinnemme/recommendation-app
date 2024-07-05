@@ -3,7 +3,6 @@ export type combatType = 'None' | 'Turn-Based' | 'Real-Time' | 'Real-Time with P
 export type streamingPlatform = 'Crunchyroll' | 'Hi Dive' | 'Hulu' | 'Netflix' | 'Apple TV' | 'Disney+' | 'Amazon Prime Video' | 'Max' | 'Paramount+' | 'Peacock'
 export type movieShowGenre = 'Horror' | 'Action' | 'Drama' | 'Romance' | 'Comedy' | 'Scifi' | 'Western' | 'Fantasy' | 'Crime' | 'Psychological Thriller' | 'Adventure' | 'Documentary' | 'Musical' | 'Fighting'
 export type videoFormat = 'Live Action' | 'Animated'
-export type episodeLength = 10 | 20 | 30 | 40 | 50 | 60
 
 export type gameRec = {
     name: string,
@@ -38,7 +37,7 @@ export type showRec = {
     platform: streamingPlatform[],
     genre: movieShowGenre[],
     episodeCount: number,
-    episodeLength: episodeLength,
+    episodeLength: number,
     description: string,
     submittedBy: string
 }
