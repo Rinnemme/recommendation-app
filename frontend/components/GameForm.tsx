@@ -133,6 +133,7 @@ export default function GameForm({successFunc}:Readonly<{successFunc:() => void}
                         <select
                             id="combatType"
                             className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
+                            defaultValue="-- Select one --"
                             {...register("combatType", {
                                 required: "Combat type is required",
                                 pattern: {
@@ -141,7 +142,7 @@ export default function GameForm({successFunc}:Readonly<{successFunc:() => void}
                                 }
                             })}
                         >
-                            <option selected disabled>-- Select one --</option>
+                            <option disabled>-- Select one --</option>
                             <option>Real-Time</option>
                             <option>Turn Based</option>
                             <option>Real-Time With Pause</option>
