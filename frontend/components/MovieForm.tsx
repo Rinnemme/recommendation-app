@@ -153,7 +153,6 @@ export default function MovieForm() {
                         </label>
                         <select
                             id="format"
-                            defaultValue=""
                             className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
                             {...register("format", {
                                 required: "Format is required",
@@ -163,7 +162,7 @@ export default function MovieForm() {
                                 }
                             })}
                         >
-                            <option>-- Select one --</option>
+                            <option selected disabled>-- Select one --</option>
                             <option>Live Action</option>
                             <option>Animated</option>
                         </select>
