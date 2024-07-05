@@ -6,13 +6,19 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Modal from './Modal'
 import MovieForm from './MovieForm'
+import GameForm from './GameForm'
+import ShowForm from './ShowForm'
+import RecPicker from './RecPicker'
+import Success from './Success'
 import { useState } from 'react'
 
+type recommendingState = 'Game' | 'Movie' | 'Show' | null
 
 export default function Navbar() {
-
-    const path = usePathname()
-    const [modalOpen, setModalOpen] = useState<Boolean>(false)
+  const path = usePathname()
+  const [modalOpen, setModalOpen] = useState<Boolean>(true)
+  const [recommending, setRecommending] = useState<recommendingState>(null)
+  const [submissionSuccess, setSubmissionSuccess] = useState<Boolean>(false)
 
   return (
     <>
@@ -76,7 +82,11 @@ export default function Navbar() {
       )}
     </Disclosure>
     {modalOpen && <Modal closeFunc={() => setModalOpen(false)}>
-        <MovieForm/>
+        {recommending === 'Movie' && <MovieForm/>}
+        {recommending === 'Game' && <GameForm/>}
+        {recommending === 'Show' && <ShowForm/>}
+        {!recommending && !submissionSuccess && <RecPicker setFunc={setRecommending}/>}
+        {/* <Success/> */}
     </Modal>}
     </>
   )
