@@ -16,7 +16,8 @@ export default function Page() {
                         <li className="overflow-hidden bg-white px-6 py-6 shadow sm:rounded-md sm:px-6 relative">
                             <p className="text-xl text-teal-600">{show.name}</p>
                             <p className="absolute right-6 top-6 text-slate-500">{`${show.releaseYear}`} {show.endYear ? ` - ${show.endYear}`: ` - present`}</p>
-                            <p className="text-sm mt-4"><span className="font-bold">{`Watch on: `}</span>{`${show.platform.join(', ')}`}</p>
+                            <p className="text-sm mt-4"><span className="font-bold">{`Format: `}</span>{`${show.format}`}</p>
+                            <p className="text-sm mt-1"><span className="font-bold">{`Watch on: `}</span>{`${show.platform.join(', ')}`}</p>
                             <p className="text-sm mt-1"><span className="font-bold">{`Genre(s): `}</span>{`${show.genre.join(', ')}`}</p>
                             <p className="text-sm mt-1"><span className="font-bold">{`Episodes: `}</span>{`${show.episodeCount}`}</p>
                             <p className="text-sm mt-1"><span className="font-bold">{`Episode length: `}</span>{`~${show.episodeLength} min`}</p>
