@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function MovieForm({successFunc}:Readonly<{successFunc:() => void}>) {
+export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:() => void; failFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
     const {dispatch} = useContext(recContext)
@@ -62,6 +62,7 @@ export default function MovieForm({successFunc}:Readonly<{successFunc:() => void
             }
         })
         if (!response.ok) {
+            failFunc()
             const json = await response.json()
             console.log(json.error)
         }
@@ -155,7 +156,7 @@ export default function MovieForm({successFunc}:Readonly<{successFunc:() => void
                         <select
                             id="format"
                             className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            defaultValue= '-- Select one --'
+                            defaultValue= "-- Select one --"
                             {...register("format", {
                                 required: "Format is required",
                                 pattern: {

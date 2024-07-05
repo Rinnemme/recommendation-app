@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { gameGenres } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function GameForm({successFunc}:Readonly<{successFunc:() => void}>) {
+export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:() => void; failFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const {dispatch} = useContext(recContext)
     const {register, handleSubmit, trigger, setValue, formState} = useForm<any>({mode: "onTouched"})
@@ -47,6 +47,7 @@ export default function GameForm({successFunc}:Readonly<{successFunc:() => void}
             }
         })
         if (!response.ok) {
+            failFunc()
             const json = await response.json()
             console.log(json.error)
         }

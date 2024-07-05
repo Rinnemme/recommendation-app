@@ -11,6 +11,7 @@ import ShowForm from './ShowForm'
 import RecPicker from './RecPicker'
 import Success from './Success'
 import { useState } from 'react'
+import ErrorOccurred from './ErrorOccurred'
 
 type recommendingState = 'Game' | 'Movie' | 'Show' | null
 
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [modalOpen, setModalOpen] = useState<Boolean>(false)
   const [recommending, setRecommending] = useState<recommendingState>(null)
   const [submissionSuccess, setSubmissionSuccess] = useState<Boolean>(false)
+  const [errorOccurred, setErrorOccurred] = useState<Boolean>(false)
 
   function modalClose() {
     setModalOpen(false)
@@ -28,6 +30,11 @@ export default function Navbar() {
 
   function submitSuccess() {
     setSubmissionSuccess(true)
+    setRecommending(null)
+  }
+
+  function submitFailure() {
+    setErrorOccurred(true)
     setRecommending(null)
   }
 
@@ -93,11 +100,12 @@ export default function Navbar() {
       )}
     </Disclosure>
     {modalOpen && <Modal closeFunc={() => modalClose()}>
-        {recommending === 'Movie' && <MovieForm successFunc={submitSuccess}/>}
-        {recommending === 'Game' && <GameForm successFunc={submitSuccess}/>}
-        {recommending === 'Show' && <ShowForm successFunc={submitSuccess}/>}
-        {!recommending && !submissionSuccess && <RecPicker setFunc={setRecommending}/>}
+        {recommending === 'Movie' && <MovieForm successFunc={submitSuccess} failFunc={submitFailure}/>}
+        {recommending === 'Game' && <GameForm successFunc={submitSuccess} failFunc={submitFailure}/>}
+        {recommending === 'Show' && <ShowForm successFunc={submitSuccess} failFunc={submitFailure}/>}
+        {!recommending && !submissionSuccess && !errorOccurred && <RecPicker setFunc={setRecommending}/>}
         {!recommending && submissionSuccess && <Success closeFunc={() => modalClose()}/>}
+        {errorOccurred && <ErrorOccurred closeFunc={() => modalClose()}/>}
     </Modal>}
     </>
   )

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function ShowForm({successFunc}:Readonly<{successFunc:() => void}>) {
+export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:() => void; failFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
     const [isOngoing, setIsOngoing] = useState<Boolean>(true)
@@ -65,6 +65,7 @@ export default function ShowForm({successFunc}:Readonly<{successFunc:() => void}
             }
         })
         if (!response.ok) {
+            failFunc()
             const json = await response.json()
             console.log(json.error)
         }
