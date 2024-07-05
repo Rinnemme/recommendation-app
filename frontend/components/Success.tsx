@@ -1,4 +1,4 @@
-export default function RecPicker () {
+export default function RecPicker ({closeFunc}: Readonly<{closeFunc: () => void }>) {
     return (
         <fieldset className="p-4 w-96">
             <div className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-normal mb-4 text-sky-800">Submission successful!</div>
@@ -7,7 +7,7 @@ export default function RecPicker () {
                 <div 
                     className={"relative flex w-[90px] h-[40px] text-center px-4 items-center py-4 hover:shadow-md transition-all duration-300 hover:scale-105 hover:cursor-pointer bg-teal-300"}
                 >
-                    <div className="min-w-0 flex-1 text-sm font-medium text-slate-900 leading-6 hover:cursor-pointer">
+                    <div className="min-w-0 flex-1 text-sm font-medium text-slate-900 leading-6 hover:cursor-pointer" onClick={closeFunc}>
                         OK
                     </div>
                 </div>
