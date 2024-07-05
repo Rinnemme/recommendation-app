@@ -16,12 +16,18 @@ type recommendingState = 'Game' | 'Movie' | 'Show' | null
 
 export default function Navbar() {
   const path = usePathname()
-  const [modalOpen, setModalOpen] = useState<Boolean>(true)
+  const [modalOpen, setModalOpen] = useState<Boolean>(false)
   const [recommending, setRecommending] = useState<recommendingState>(null)
   const [submissionSuccess, setSubmissionSuccess] = useState<Boolean>(false)
 
   function modalClose() {
     setModalOpen(false)
+    setRecommending(null)
+    if(submissionSuccess) {setSubmissionSuccess(false)}
+  }
+
+  function submitSuccess() {
+    setSubmissionSuccess(true)
     setRecommending(null)
   }
 
@@ -87,11 +93,11 @@ export default function Navbar() {
       )}
     </Disclosure>
     {modalOpen && <Modal closeFunc={() => modalClose()}>
-        {recommending === 'Movie' && <MovieForm/>}
-        {recommending === 'Game' && <GameForm/>}
-        {recommending === 'Show' && <ShowForm/>}
+        {recommending === 'Movie' && <MovieForm successFunc={submitSuccess}/>}
+        {recommending === 'Game' && <GameForm successFunc={submitSuccess}/>}
+        {recommending === 'Show' && <ShowForm successFunc={submitSuccess}/>}
         {!recommending && !submissionSuccess && <RecPicker setFunc={setRecommending}/>}
-        {/* <Success/> */}
+        {!recommending && submissionSuccess && <Success closeFunc={() => modalClose()}/>}
     </Modal>}
     </>
   )
