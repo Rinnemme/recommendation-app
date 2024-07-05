@@ -60,7 +60,7 @@ export default function GameForm() {
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
                     <DialogTitle as="h3" className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-6 mb-10 mt-6 text-sky-800">
-                    Recommend a movie
+                    Recommend a game
                     </DialogTitle>
                     
                     <div className="w-72 mt-6">
@@ -131,7 +131,6 @@ export default function GameForm() {
                         </label>
                         <select
                             id="combatType"
-                            defaultValue=""
                             className="block mt-2 mb-3 w-full rounded-md border-0 px-2.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
                             {...register("combatType", {
                                 required: "Combat type is required",
@@ -141,7 +140,7 @@ export default function GameForm() {
                                 }
                             })}
                         >
-                            <option>-- Select one --</option>
+                            <option selected disabled>-- Select one --</option>
                             <option>Real-Time</option>
                             <option>Turn Based</option>
                             <option>Real-Time With Pause</option>
