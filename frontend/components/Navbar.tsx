@@ -20,6 +20,11 @@ export default function Navbar() {
   const [recommending, setRecommending] = useState<recommendingState>(null)
   const [submissionSuccess, setSubmissionSuccess] = useState<Boolean>(false)
 
+  function modalClose() {
+    setModalOpen(false)
+    setRecommending(null)
+  }
+
   return (
     <>
     <Disclosure as="nav" className="bg-white shadow-md z-10 sticky top-0">
@@ -81,7 +86,7 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-    {modalOpen && <Modal closeFunc={() => setModalOpen(false)}>
+    {modalOpen && <Modal closeFunc={() => modalClose()}>
         {recommending === 'Movie' && <MovieForm/>}
         {recommending === 'Game' && <GameForm/>}
         {recommending === 'Show' && <ShowForm/>}
