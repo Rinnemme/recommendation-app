@@ -1,14 +1,14 @@
 "use client"
 
 import { DialogTitle } from '@headlessui/react'
-import { useState, ReactNode, useContext } from 'react'
+import { useState, ReactNode, useContext, Dispatch, SetStateAction } from 'react'
 import Selector from '@/components/Selector'
 import { gameRec } from '@/types'
 import { useForm } from "react-hook-form"
 import { gameGenres } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function GameForm() {
+export default function GameForm({successFunc}:Readonly<{successFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const {dispatch} = useContext(recContext)
     const {register, handleSubmit, trigger, setValue, formState} = useForm<any>({mode: "onTouched"})
@@ -51,6 +51,7 @@ export default function GameForm() {
             console.log(json.error)
         }
         if (response.ok) {
+            successFunc()
             dispatch({type: 'ADD_GAME', payload: rec})
         }
     }

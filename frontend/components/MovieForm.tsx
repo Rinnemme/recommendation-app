@@ -1,14 +1,14 @@
 "use client"
 
 import { DialogTitle } from '@headlessui/react'
-import { useState, ReactNode, useContext } from 'react'
+import { useState, ReactNode, useContext, Dispatch, SetStateAction } from 'react'
 import Selector from '@/components/Selector'
 import { movieRec } from '@/types'
 import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function MovieForm() {
+export default function MovieForm({successFunc}:Readonly<{successFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
     const {dispatch} = useContext(recContext)
@@ -66,6 +66,7 @@ export default function MovieForm() {
             console.log(json.error)
         }
         if (response.ok) {
+            successFunc()
             dispatch({type: 'ADD_MOVIE', payload: rec})
         }
     }

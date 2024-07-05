@@ -1,14 +1,14 @@
 "use client"
 
 import { DialogTitle } from '@headlessui/react'
-import { useState, ReactNode, useContext } from 'react'
+import { useState, ReactNode, useContext, Dispatch, SetStateAction } from 'react'
 import Selector from '@/components/Selector'
 import { showRec } from '@/types'
 import { useForm } from "react-hook-form"
 import { videoGenres, streamingPlatforms } from '@/lists'
 import { recContext } from '@/context/appContext'
 
-export default function ShowForm() {
+export default function ShowForm({successFunc}:Readonly<{successFunc:() => void}>) {
     const [recGenres, setRecGenres] = useState<string[] | []>([])
     const [recPlatforms, setRecPlatforms] = useState<string[] | []>([])
     const [isOngoing, setIsOngoing] = useState<Boolean>(true)
@@ -69,6 +69,7 @@ export default function ShowForm() {
             console.log(json.error)
         }
         if (response.ok) {
+            successFunc()
             dispatch({type: 'ADD_MOVIE', payload: rec})
         }
     }
