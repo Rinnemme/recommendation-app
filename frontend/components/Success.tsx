@@ -1,6 +1,6 @@
 export default function RecPicker ({closeFunc}: Readonly<{closeFunc: () => void }>) {
     return (
-        <fieldset className="p-4 w-96">
+        <fieldset className="p-4 w-full sm:w-96">
             <div className="text-3xl font-extralight underline underline-offset-8 decoration-teal-500 decoration-1 leading-normal mb-4 text-sky-800">Submission successful!</div>
             <div className="text-l font-light underline-offset-8 decoration-teal-500 leading-normal mb-6 text-slate-900">Thanks for your recommendation!</div>
             <div className="mt-1 flex flex-wrap items-center justify-center gap-4">

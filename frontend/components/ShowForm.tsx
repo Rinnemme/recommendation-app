@@ -277,7 +277,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                     <p className="mt-1 mb-2 text-sm h-2 text-red-600">{errors.genre?.message as ReactNode}</p>
                     <Selector array={videoGenres} state={recGenres} func={toggleGenre}/>
 
-                    <div className="w-96 mt-6">
+                    <div className="w-11/12 sm:w-96 mt-6">
                         <label htmlFor="description" className="block font-medium leading-6 text-gray-900">
                             Description
                         </label>

@@ -196,7 +196,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                         <p className="mt-1 text-sm h-2 text-red-600">{errors.steamLink?.message as ReactNode}</p>
                     </div>
 
-                    <div className="w-96 mt-6">
+                    <div className="w-11/12 sm:w-96 mt-6">
                         <label htmlFor="about" className="block font-medium leading-6 text-gray-900">
                             Description
                         </label>
