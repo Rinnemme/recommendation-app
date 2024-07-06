@@ -20,6 +20,10 @@ app.use(cors({origin: [
     "https://recommendation-app-beta.vercel.app/games",
     "https://recommendation-app-beta.vercel.app/movies", 
     "https://recommendation-app-beta.vercel.app/shows",
+    "https://recommendation-app-ouan.vercel.app/",
+    "https://recommendation-app-ouan.vercel.app/games",
+    "https://recommendation-app-ouan.vercel.app/movies",
+    "https://recommendation-app-ouan.vercel.app/shows",
     "http://localhost:3000/formtest",
     "http://localhost:3000"
 ]}))
