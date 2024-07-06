@@ -13,7 +13,7 @@ export default function Page() {
             <ul role="list" className="space-y-3 w-[90vw] sm:w-[600px] max-w-5xl flex flex-col gap-3 mb-12">
                 {movies.map((movie:movieRec) => {
                     return (
-                        <li className="overflow-hidden bg-white px-6 py-6 shadow sm:rounded-md sm:px-6 relative">
+                        <li className="overflow-hidden bg-white px-6 py-6 shadow sm:rounded-sm sm:px-6 relative">
                             <p className="text-xl text-teal-600">{movie.name}</p>
                             <p className="absolute right-6 top-6 text-slate-500">{`${movie.releaseYear}`}</p>
                             <p className="text-sm mt-4"><span className="font-bold">{`Watch on: `}</span>{`${movie.platform.join(', ')}`}</p>

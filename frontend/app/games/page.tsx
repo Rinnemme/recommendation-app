@@ -14,7 +14,7 @@ export default function Page() {
                 {games.map((game:gameRec) => {
                     const url = game.steamLink
                     return (
-                        <li className="overflow-hidden bg-white px-6 py-6 shadow sm:rounded-md sm:px-6 relative">
+                        <li className="overflow-hidden bg-white px-6 py-6 shadow sm:rounded-sm sm:px-6 relative">
                             <p className="text-xl text-teal-600">{game.name}</p>
                             <p className="absolute right-6 top-6 text-slate-500">{`${game.releaseYear}`}</p>
                             <p className="text-sm mt-4"><span className="font-bold">{`Genre(s): `}</span>{`${game.genre.join(', ')}`}</p>
