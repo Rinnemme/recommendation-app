@@ -76,7 +76,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
     
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="mt-3 text-center flex flex-col items-center sm:mt-5">
-                    <DialogTitle as="h3" className="text-3xl font-extralight leading-6 mb-10 mt-6 text-sky-800">
+                    <DialogTitle as="h3" className="text-3xl font-extralight leading-6 mb-10 mt-6 text-teal-600">
                     Recommend a movie
                     </DialogTitle>
                     
