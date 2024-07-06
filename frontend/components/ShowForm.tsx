@@ -322,7 +322,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                     </div>
 
                 </div>
-                <div className="mt-5 sm:mt-6 w-full flex justify-center">
+                <div className="mt-5 sm:mt-6 mb-8 w-full flex justify-center">
                 <button
                     type="submit"
                     className="inline-flex w-auto justify-center rounded-md bg-teal-500 px-3 py-2 my-4 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 hover:scale-105 transition-all duration-300"
