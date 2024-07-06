@@ -138,7 +138,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             {...register("combatType", {
                                 required: "Combat type is required",
                                 pattern: {
-                                    value: /^[^-]*$/,
+                                    value: /^[A-Za-z]/,
                                     message: "Please select a combat type"
                                 }
                             })}
