@@ -16,8 +16,8 @@ export default function Modal({children, closeFunc}: Readonly<{children: React.R
             className="flex flex-col relative content-center rounded-md bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-scroll my-12"
           >
             <div className="sticky top-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.75" className="absolute top-0 right-0 size-6 stroke-slate-400 hover:cursor-pointer hover:stroke-rose-500" onClick={closeFunc}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute top-0 right-0 size-6 fill-slate-300 transition-all duration-300 hover:cursor-pointer hover:fill-rose-500" onClick={closeFunc}>
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd"/>
               </svg>
             </div>
             {children}
