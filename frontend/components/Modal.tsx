@@ -13,7 +13,7 @@ export default function Modal({children, closeFunc}: Readonly<{children: React.R
         <div className="flex min-h-full min-w-96 content-center justify-center p-4 text-center items-center sm:p-0">
           <DialogPanel
             transition
-            className="flex flex-col relative content-center rounded-md bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-scroll my-12"
+            className="flex flex-col relative content-center rounded-md bg-white px-4 pb-4 pt-5 max-w-xl max-h-[90dvh] overflow-auto my-12"
           >
             <div className="sticky top-0">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute top-0 right-0 size-6 fill-slate-300 transition-all duration-300 hover:cursor-pointer hover:fill-rose-500" onClick={closeFunc}>
