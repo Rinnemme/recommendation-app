@@ -89,7 +89,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             type="text"
                             id="name"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. Dead Poet's Society"
+                            placeholder="e.g. Good Will Hunting"
                             {...register("name", {
                                 required: "Movie name is required",
                                 pattern: {
@@ -111,7 +111,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             type="text"
                             id="stars"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. Tom Cruise, Tom Hanks, Tom Hardy"
+                            placeholder="e.g. Robin Williams, Ben Affleck, Matt Damon, Minnie Driver"
                             {...register("starring", {
                                 required: "At least one star is required",
                                 pattern: {
@@ -136,7 +136,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             type="text"
                             id="director"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. Ridley Scott"
+                            placeholder="e.g. Gus Van Sant"
                             {...register("director", {
                                 required: "Director is required",
                                 pattern: {
@@ -181,7 +181,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             type="text"
                             id="length"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 129 for a movie that is 2hr 9m"
+                            placeholder="e.g. 126 for 2hr 6m"
                             {...register("length", {
                                 required: "Length is required",
                                 pattern: {
@@ -203,7 +203,7 @@ export default function MovieForm({successFunc, failFunc}:Readonly<{successFunc:
                             type="text"
                             id="releaseYear"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 2006"
+                            placeholder="e.g. 1997"
                             {...register("releaseYear", {
                                 required: "Release year is required",
                                 pattern: {

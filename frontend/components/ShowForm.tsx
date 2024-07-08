@@ -92,7 +92,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="name"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. Dead Poet's Society"
+                            placeholder="e.g. The Wire"
                             {...register("name", {
                                 required: "Movie name is required",
                                 pattern: {
@@ -137,7 +137,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="episodeLength"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 129 for a movie that is 2hr 9m"
+                            placeholder="e.g. 55 for a 55 minute show"
                             {...register("episodeLength", {
                                 required: "Episode length is required",
                                 pattern: {
@@ -159,7 +159,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="episodeCount"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 129 for a movie that is 2hr 9m"
+                            placeholder="e.g. 60"
                             {...register("episodeCount", {
                                 required: "Total number of episodes is required",
                                 pattern: {
@@ -181,7 +181,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="releaseYear"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 2006"
+                            placeholder="e.g. 2002"
                             {...register("releaseYear", {
                                 required: "Release year is required",
                                 pattern: {
@@ -227,7 +227,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="endYear"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            defaultValue=""
+                            placeholder="e.g. 2008"
                             {...register("endYear", {
                                 required: "End year is required if ongoing is set to 'no'",
                                 pattern: {
@@ -288,7 +288,7 @@ export default function ShowForm({successFunc, failFunc}:Readonly<{successFunc:(
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
                             defaultValue={''}
                             {...register("description", {
-                                required: "description is required",
+                                required: "Description is required",
                                 pattern: {
                                     value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"

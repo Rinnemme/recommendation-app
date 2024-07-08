@@ -76,7 +76,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
                             placeholder="e.g. Triangle Strategy"
                             {...register("name", {
-                                required: "Movie name is required",
+                                required: "Game name is required",
                                 pattern: {
                                     value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
@@ -161,7 +161,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="price"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. 129 for a movie that is 2hr 9m"
+                            placeholder="e.g. 59.99"
                             {...register("price", {
                                 required: "price is required",
                                 pattern: {
@@ -183,7 +183,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             type="text"
                             id="steamLink"
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
-                            placeholder="e.g. Ridley Scott"
+                            placeholder="Copy from Steam page"
                             {...register("steamLink", {
                                 required: "Steam Link is required",
                                 pattern: {
@@ -207,7 +207,7 @@ export default function GameForm({successFunc, failFunc}:Readonly<{successFunc:(
                             className="block w-full rounded-md border-0 px-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-teal-500 sm:text-sm sm:leading-6"
                             defaultValue={''}
                             {...register("description", {
-                                required: "Descsription is required",
+                                required: "Description is required",
                                 pattern: {
                                     value: /^[^<>{}>]*$/,
                                     message: "Must not contain: <, {, >, }"
