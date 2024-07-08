@@ -50,7 +50,7 @@ export default function Navbar() {
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
                   {/* Mobile menu button */}
                   <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="absolute -inset-0.5" />
+                    <span className="absolute -inset-0.5 hover:cursor-pointer"/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 hover:cursor-pointer">
                         <path className="hover:cursor-pointer" strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -89,10 +89,10 @@ export default function Navbar() {
 
           <DisclosurePanel className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                <DisclosureButton>                  
-                  <Link href="/games" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/games" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Games</Link>
-                  <Link href="/movies" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/movies" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Movies</Link>
-                  <Link href="/shows" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 " + (path === "/shows" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Shows</Link>
+              <DisclosureButton>                  
+                  <Link href="/games" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 hover:cursor-pointer " + (path === "/games" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Games</Link>
+                  <Link href="/movies" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 hover:cursor-pointer " + (path === "/movies" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Movies</Link>
+                  <Link href="/shows" className={"block px-3 py-2 text-sm text-gray-800 font-medium border-l-4 hover:cursor-pointer " + (path === "/shows" ? ' border-cyan-600' : 'border-white hover:bg-slate-100 hover:text-cyan-700')}>Shows</Link>
                 </DisclosureButton>
             </div>
           </DisclosurePanel>

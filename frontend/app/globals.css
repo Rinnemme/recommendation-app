@@ -11,7 +11,7 @@
   cursor:default;
 }
 
-button:hover {
+button:hover, a:hover {
   cursor:pointer;
 }
 
